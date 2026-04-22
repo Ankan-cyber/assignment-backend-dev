@@ -1,0 +1,339 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "CloudNotePro",
+  "dateExported": "2026-04-23T00:00:00.000Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "_id": "f-auth",
+      "name": "Auth",
+      "containerId": "",
+      "created": "2026-04-23T00:00:00.000Z",
+      "sortNum": 10000
+    },
+    {
+      "_id": "f-notes",
+      "name": "Notes",
+      "containerId": "",
+      "created": "2026-04-23T00:00:00.000Z",
+      "sortNum": 20000
+    },
+    {
+      "_id": "f-admin",
+      "name": "Admin",
+      "containerId": "",
+      "created": "2026-04-23T00:00:00.000Z",
+      "sortNum": 30000
+    }
+  ],
+  "requests": [
+    {
+      "_id": "r-auth-signup",
+      "colId": "cloudnotepro-v1",
+      "containerId": "f-auth",
+      "name": "Signup",
+      "url": "{{baseUrl}}/api/v1/auth/signup",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2026-04-23T00:00:00.000Z",
+      "modified": "2026-04-23T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Demo User\",\n  \"email\": \"demo.user@example.com\",\n  \"password\": \"demoPass123\",\n  \"role\": \"user\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "r-auth-login-user",
+      "colId": "cloudnotepro-v1",
+      "containerId": "f-auth",
+      "name": "Login (User)",
+      "url": "{{baseUrl}}/api/v1/auth/login",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2026-04-23T00:00:00.000Z",
+      "modified": "2026-04-23T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"demo.user@example.com\",\n  \"password\": \"demoPass123\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "r-auth-login-admin",
+      "colId": "cloudnotepro-v1",
+      "containerId": "f-auth",
+      "name": "Login (Admin)",
+      "url": "{{baseUrl}}/api/v1/auth/login",
+      "method": "POST",
+      "sortNum": 30000,
+      "created": "2026-04-23T00:00:00.000Z",
+      "modified": "2026-04-23T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"demo.admin@example.com\",\n  \"password\": \"demoAdminPass123\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "r-auth-getuser",
+      "colId": "cloudnotepro-v1",
+      "containerId": "f-auth",
+      "name": "Get User",
+      "url": "{{baseUrl}}/api/v1/auth/getuser",
+      "method": "GET",
+      "sortNum": 40000,
+      "created": "2026-04-23T00:00:00.000Z",
+      "modified": "2026-04-23T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "auth-token",
+          "value": "{{userToken}}"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "r-auth-change-password",
+      "colId": "cloudnotepro-v1",
+      "containerId": "f-auth",
+      "name": "Change User Password",
+      "url": "{{baseUrl}}/api/v1/auth/changepassword",
+      "method": "PUT",
+      "sortNum": 50000,
+      "created": "2026-04-23T00:00:00.000Z",
+      "modified": "2026-04-23T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "auth-token",
+          "value": "{{userToken}}"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Demo User\",\n  \"oldpassword\": \"demoPass123\",\n  \"newpassword\": \"demoPass456\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "r-auth-mail-reset",
+      "colId": "cloudnotepro-v1",
+      "containerId": "f-auth",
+      "name": "Reset Password Mail",
+      "url": "{{baseUrl}}/api/v1/auth/mailreset",
+      "method": "POST",
+      "sortNum": 60000,
+      "created": "2026-04-23T00:00:00.000Z",
+      "modified": "2026-04-23T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"demo.user@example.com\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "r-auth-verify-reset",
+      "colId": "cloudnotepro-v1",
+      "containerId": "f-auth",
+      "name": "Verify Password Reset",
+      "url": "{{baseUrl}}/api/v1/auth/verify",
+      "method": "GET",
+      "sortNum": 70000,
+      "created": "2026-04-23T00:00:00.000Z",
+      "modified": "2026-04-23T00:00:00.000Z",
+      "headers": [],
+      "params": [
+        {
+          "name": "token",
+          "value": "{{resetToken}}",
+          "isPath": false
+        }
+      ],
+      "tests": []
+    },
+    {
+      "_id": "r-auth-reset-password",
+      "colId": "cloudnotepro-v1",
+      "containerId": "f-auth",
+      "name": "Reset Password",
+      "url": "{{baseUrl}}/api/v1/auth/resetpassword",
+      "method": "PUT",
+      "sortNum": 80000,
+      "created": "2026-04-23T00:00:00.000Z",
+      "modified": "2026-04-23T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"id\": \"{{userId}}\",\n  \"token\": \"{{resetToken}}\",\n  \"password\": \"demoPass789\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "r-notes-add",
+      "colId": "cloudnotepro-v1",
+      "containerId": "f-notes",
+      "name": "Add New Note",
+      "url": "{{baseUrl}}/api/v1/notes/add",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2026-04-23T00:00:00.000Z",
+      "modified": "2026-04-23T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "auth-token",
+          "value": "{{userToken}}"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Demo Note Title\",\n  \"description\": \"Demo note description for API collection.\",\n  \"tag\": \"general\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "r-notes-fetch",
+      "colId": "cloudnotepro-v1",
+      "containerId": "f-notes",
+      "name": "Fetch All Notes",
+      "url": "{{baseUrl}}/api/v1/notes/fetch",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2026-04-23T00:00:00.000Z",
+      "modified": "2026-04-23T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "auth-token",
+          "value": "{{userToken}}"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "r-notes-update",
+      "colId": "cloudnotepro-v1",
+      "containerId": "f-notes",
+      "name": "Update Note",
+      "url": "{{baseUrl}}/api/v1/notes/update/{{noteId}}",
+      "method": "PUT",
+      "sortNum": 30000,
+      "created": "2026-04-23T00:00:00.000Z",
+      "modified": "2026-04-23T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "auth-token",
+          "value": "{{userToken}}"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Updated Demo Note\",\n  \"description\": \"Updated description from collection example.\",\n  \"tag\": \"work\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "r-notes-delete",
+      "colId": "cloudnotepro-v1",
+      "containerId": "f-notes",
+      "name": "Delete Note",
+      "url": "{{baseUrl}}/api/v1/notes/delete/{{noteId}}",
+      "method": "DELETE",
+      "sortNum": 40000,
+      "created": "2026-04-23T00:00:00.000Z",
+      "modified": "2026-04-23T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "auth-token",
+          "value": "{{userToken}}"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "r-admin-proof",
+      "colId": "cloudnotepro-v1",
+      "containerId": "f-admin",
+      "name": "Admin Proof Endpoint",
+      "url": "{{baseUrl}}/api/v1/auth/admin/proof",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2026-04-23T00:00:00.000Z",
+      "modified": "2026-04-23T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "auth-token",
+          "value": "{{adminToken}}"
+        }
+      ],
+      "params": [],
+      "tests": []
+    }
+  ]
+}
